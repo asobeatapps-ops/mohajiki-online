@@ -1,0 +1,243 @@
+[
+  {
+    "test": "mobile initial render/no horizontal overflow",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "v2.2 configuration",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "second touch cancels outside=False original-first",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "no shot/no turn consumed outside=False original-first",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "second touch cancels outside=True second-first",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "no shot/no turn consumed outside=True second-first",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "second touch cancels outside=True original-first",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "no shot/no turn consumed outside=True original-first",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "return-to-origin cancels even with off-center grab",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "normal touch release fires exactly once",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "high-speed collision transfers velocity without tunneling",
+    "pass": true,
+    "detail": 1302.2601753637289,
+    "scope": "Local browser"
+  },
+  {
+    "test": "high-speed solid wall reflects",
+    "pass": true,
+    "detail": 1299.0949756679624,
+    "scope": "Local browser"
+  },
+  {
+    "test": "real letter collision fuses and scores",
+    "pass": true,
+    "detail": 1,
+    "scope": "Local browser"
+  },
+  {
+    "test": "all 21 fusion effects run with finite state",
+    "pass": true,
+    "detail": 21,
+    "scope": "Local browser"
+  },
+  {
+    "test": "local game completes after 12 shots",
+    "pass": true,
+    "detail": {
+      "phase": "result",
+      "remaining": [
+        0,
+        0
+      ]
+    },
+    "scope": "Local browser"
+  },
+  {
+    "test": "rematch resets scores and shots",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "CPU chooses and fires on its turn",
+    "pass": true,
+    "detail": [
+      5,
+      5
+    ],
+    "scope": "Local browser"
+  },
+  {
+    "test": "landscape no horizontal overflow",
+    "pass": true,
+    "detail": null,
+    "scope": "Local browser"
+  },
+  {
+    "test": "no runtime JavaScript errors",
+    "pass": true,
+    "detail": [],
+    "scope": "Local browser"
+  },
+  {
+    "test": "mock transport room join",
+    "pass": true,
+    "detail": null,
+    "scope": "Mock transport / two pages"
+  },
+  {
+    "test": "both clients share distinct companion profiles",
+    "pass": true,
+    "detail": [
+      {
+        "cat": "white"
+      },
+      {
+        "cat": "black"
+      }
+    ],
+    "scope": "Mock transport / two pages"
+  },
+  {
+    "test": "both clients share power configuration",
+    "pass": true,
+    "detail": null,
+    "scope": "Mock transport / two pages"
+  },
+  {
+    "test": "host shot/turn reaches guest",
+    "pass": true,
+    "detail": null,
+    "scope": "Mock transport / two pages"
+  },
+  {
+    "test": "guest second-finger cancel sends no shot message",
+    "pass": true,
+    "detail": null,
+    "scope": "Mock transport / two pages"
+  },
+  {
+    "test": "host accepts guest 1690 max-power shot",
+    "pass": true,
+    "detail": null,
+    "scope": "Mock transport / two pages"
+  },
+  {
+    "test": "scores and remaining synchronized",
+    "pass": true,
+    "detail": [
+      5,
+      5
+    ],
+    "scope": "Mock transport / two pages"
+  },
+  {
+    "test": "both online clients finish 12 turns",
+    "pass": true,
+    "detail": null,
+    "scope": "Mock transport / two pages"
+  },
+  {
+    "test": "two-party online rematch resets correctly",
+    "pass": true,
+    "detail": null,
+    "scope": "Mock transport / two pages"
+  },
+  {
+    "test": "no online runtime errors",
+    "pass": true,
+    "detail": [],
+    "scope": "Mock transport / two pages"
+  },
+  {
+    "test": "companion image cards draw loaded fixture images",
+    "pass": true,
+    "detail": null,
+    "scope": "Synthetic image fixtures"
+  },
+  {
+    "test": "white cat selection uses white-cat asset",
+    "pass": true,
+    "detail": null,
+    "scope": "Synthetic image fixtures"
+  },
+  {
+    "test": "distinct combo photo asset requests",
+    "pass": true,
+    "detail": null,
+    "scope": "Synthetic image fixtures"
+  },
+  {
+    "test": "terrain photo aliases resolve and draw",
+    "pass": true,
+    "detail": null,
+    "scope": "Synthetic image fixtures"
+  },
+  {
+    "test": "companion choices frozen during match",
+    "pass": true,
+    "detail": null,
+    "scope": "Synthetic image fixtures"
+  },
+  {
+    "test": "37 companion variant effect paths run",
+    "pass": true,
+    "detail": 37,
+    "scope": "Synthetic image fixtures"
+  },
+  {
+    "test": "empty board auto-passes to result",
+    "pass": true,
+    "detail": "result",
+    "scope": "Synthetic image fixtures"
+  },
+  {
+    "test": "no photo-branch runtime errors",
+    "pass": true,
+    "detail": [],
+    "scope": "Synthetic image fixtures"
+  }
+]

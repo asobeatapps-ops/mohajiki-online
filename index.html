@@ -2,11 +2,11 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5">
 <meta name="theme-color" content="#fff9ef">
 <meta name="description" content="文字をはじいて言葉をつくる！ 陸と海の21の合体で大逆転。ASOBeatの無料ブラウザゲーム「もはじき」。">
-<title>もはじき Ver.2.1 | ASOBeat</title>
-<link rel="stylesheet" href="style.css">
+<title>もはじき Ver.2.2 | ASOBeat</title>
+<link rel="stylesheet" href="style.css?v=2.2.0">
 </head>
 <body>
 <div class="page-grain" aria-hidden="true"></div>
@@ -16,7 +16,7 @@
       <span class="brand-square"><span class="brand-ball">も</span><span class="brand-ball">は</span></span>
       <span class="brand-words"><b>ASOBeat</b><small>日常にアソビのスパイスを。</small></span>
     </a>
-    <div class="head-right"><span class="version-pill">BATTLE LAB <b>2.1</b></span><button class="icon-button" id="globalSound" aria-label="効果音のオン・オフ" title="サウンド"><span id="soundGlyph">♪</span></button></div>
+    <div class="head-right"><span class="version-pill">BATTLE LAB <b>2.2</b></span><button class="icon-button" id="globalSound" aria-label="効果音のオン・オフ" title="サウンド"><span id="soundGlyph">♪</span></button></div>
   </header>
   <main>
     <section id="homeScreen" class="screen active" aria-label="タイトル画面">
@@ -26,7 +26,7 @@
           <h1><span class="mo">も</span><span class="ha">は</span><span class="ji">じ</span><span class="ki">き</span><span class="headline-dot">。</span></h1>
           <p class="hero-catch">はじいて、くっつけて、<strong>大逆転！</strong></p>
           <p class="hero-desc">「ね」＋「こ」で、ねこが走る。<br>文字を飛ばして言葉をつくる、わちゃわちゃ対戦ゲーム。</p>
-          <div class="rule-pills"><span>ひっぱって、はなす</span><span>21種類の合体</span><span>6投で勝負！</span></div>
+          <div class="power-banner"><span>NEW / OVERDRIVE</span><b>いつもより、はじける。</b></div><div class="rule-pills"><span>ひっぱって、はなす</span><span>21種類の合体</span><span>6投で勝負！</span></div>
           <div class="control-card">
             <div class="field-label">01 / どのフィールドであそぶ？</div>
             <div class="segmented board-options" role="group" aria-label="フィールド">
@@ -57,21 +57,22 @@
               <p class="online-notice">※ インターネット接続が必要です。ホストは試合中ページを開いたままにしてください。ネットワーク環境によっては接続できないことがあります。</p>
             </div>
             <button id="startBtn" class="start-button">ゲームスタート <span aria-hidden="true">↗</span></button>
-            <div class="card-foot"><button id="openZukanHome" class="text-button">▦ もはじき図鑑</button><button id="openHelpHome" class="text-button">? あそびかた</button><button id="openSettingsHome" class="text-button">⚙ せってい</button></div>
+            <div class="card-foot"><button id="openZukanHome" class="text-button">▦ もはじき図鑑</button><button id="openHelpHome" class="text-button">? あそびかた</button><button id="openSettingsHome" class="text-button companions-link">⚙ 仲間・設定</button></div>
           </div>
           <p class="online-note">🌐 2台でネット対戦にも対応！ ルームコードで簡単に対戦できます。</p>
         </div>
         <div class="showcase" aria-hidden="true">
-          <div class="showcase-stamp">A LITTLE WORD<br><strong>BIG MAGIC!</strong></div>
+          <div class="showcase-stamp">NEW POWER<br><strong>1.7×</strong><small>MAX LAUNCH</small></div>
           <div class="board-preview" id="boardPreview">
             <div class="preview-orbit orbit1"></div><div class="preview-orbit orbit2"></div>
             <div class="preview-piece preview-ne">ね</div><div class="preview-plus">＋</div><div class="preview-piece preview-ko">こ</div>
             <div class="preview-flash">✦</div>
-            <div class="preview-cat"><div class="cat-ears"><i></i><i></i></div><div class="cat-face"><span>●</span><span>ᴗ</span><span>●</span></div><b>ねこ！</b></div>
-            <div class="preview-score">+20 <small>COMBO!</small></div>
+            <div class="preview-cat photo-marble" data-photo-key="cat.normal" data-alt="三毛ねこ"><span class="photo-fallback">ねこ</span><b>ねこ！</b></div>
+<div class="preview-pet-bubble"><span class="photo" data-photo-key="rabbit.nether" data-alt="ネザーランドドワーフ"><span class="photo-fallback">うさ</span></span><b>BOUNCE!</b></div>
+<div class="preview-score">+20 <small>COMBO!</small></div>
             <div class="preview-hint">文字がおはじきに。<br>言葉がキャラクターに。</div>
           </div>
-          <div class="showcase-bottom"><span>◌　ふしぎな一投を、はじめよう。</span><span>✳ 1 GAME / 約 3 MIN</span></div>
+          <div id="homeCompanions" class="home-companions"></div><p class="photo-note">タップして仲間を選ぼう / 画像は通信読込</p><div class="showcase-bottom"><span>◌　ふしぎな一投を、はじめよう。</span><span>✳ 1 GAME / 約 3 MIN</span></div>
         </div>
       </div>
     </section>
@@ -85,7 +86,7 @@
         </div>
       </div>
       <div class="play-body">
-        <div class="court-wrap">
+        <div class="court-wrap"><div class="court-caption"><b>OVERDRIVE ARENA</b><span>引いて発射 / 別指タップで中断</span></div>
           <div id="court" class="court" data-stage="land" data-orientation="wide">
             <video id="cameraVideo" playsinline muted autoplay></video>
             <canvas id="gameCanvas" aria-label="おはじきを後ろに引いて、はなそう" tabindex="0"></canvas>
@@ -109,9 +110,11 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer"><span>ASOBeat　/　日常にアソビのスパイスを。</span><span>MOHAJIKI v2.1 · ONLINE EDITION</span></footer>
+  <footer class="site-footer"><button class="text-button" data-open-credits>PHOTO CREDITS</button><span>ASOBeat　/　日常にアソビのスパイスを。</span><span>MOHAJIKI v2.2 · ONLINE EDITION</span></footer>
 </div>
 <div id="modalLayer" class="modal-layer" hidden><div class="modal-backdrop" data-close="modal"></div><div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button id="modalClose" class="modal-x" aria-label="閉じる">×</button><div id="modalContent"></div></div></div>
 <div id="toast" class="global-toast" role="status" aria-live="polite"></div>
-<script src="game.js"></script>
+<script src="assets-local.js?v=2.2.0"></script>
+<script src="assets.js?v=2.2.0"></script>
+<script src="game.js?v=2.2.0"></script>
 </body></html>
