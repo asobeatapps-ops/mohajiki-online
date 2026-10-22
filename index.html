@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<meta name="theme-color" content="#fff9ef">
+<meta name="description" content="文字をはじいて言葉をつくる！ 陸と海の21の合体で大逆転。ASOBeatの無料ブラウザゲーム「もはじき」。">
+<title>もはじき Ver.2.1 | ASOBeat</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-grain" aria-hidden="true"></div>
+<div class="app-shell">
+  <header class="top-head">
+    <a class="brandmark" href="#" id="homeLogo" aria-label="もはじき トップへ">
+      <span class="brand-square"><span class="brand-ball">も</span><span class="brand-ball">は</span></span>
+      <span class="brand-words"><b>ASOBeat</b><small>日常にアソビのスパイスを。</small></span>
+    </a>
+    <div class="head-right"><span class="version-pill">BATTLE LAB <b>2.1</b></span><button class="icon-button" id="globalSound" aria-label="効果音のオン・オフ" title="サウンド"><span id="soundGlyph">♪</span></button></div>
+  </header>
+  <main>
+    <section id="homeScreen" class="screen active" aria-label="タイトル画面">
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="sparkle">✳</span> ひと投げで、ことばが動きだす。</div>
+          <h1><span class="mo">も</span><span class="ha">は</span><span class="ji">じ</span><span class="ki">き</span><span class="headline-dot">。</span></h1>
+          <p class="hero-catch">はじいて、くっつけて、<strong>大逆転！</strong></p>
+          <p class="hero-desc">「ね」＋「こ」で、ねこが走る。<br>文字を飛ばして言葉をつくる、わちゃわちゃ対戦ゲーム。</p>
+          <div class="rule-pills"><span>ひっぱって、はなす</span><span>21種類の合体</span><span>6投で勝負！</span></div>
+          <div class="control-card">
+            <div class="field-label">01 / どのフィールドであそぶ？</div>
+            <div class="segmented board-options" role="group" aria-label="フィールド">
+              <button class="option selected" data-board="land"><span class="option-icon land-icon">✿</span><span><b>陸のステージ</b><small>11の合体</small></span></button>
+              <button class="option" data-board="sea"><span class="option-icon sea-icon">≈</span><span><b>海のステージ</b><small>10の合体</small></span></button>
+            </div>
+            <div class="field-label second">02 / だれとあそぶ？</div>
+            <div class="segmented mode-options" role="group" aria-label="対戦モード">
+              <button class="mode selected" data-mode="cpu">ひとりで CPU と</button>
+              <button class="mode" data-mode="local">1台で交互に</button>
+              <button class="mode" data-mode="online">🌐 2台で対戦</button>
+            </div>
+            <div id="difficultyRow" class="difficulty-row"><span>CPUのつよさ</span><div class="difficulty-buttons"><button data-difficulty="easy">やさしい</button><button class="selected" data-difficulty="normal">ふつう</button><button data-difficulty="hard">つよい</button></div></div>
+            <div id="onlineSetup" class="online-setup" hidden>
+              <div class="network-eyebrow">ONLINE / ふたりでネット対戦</div>
+              <p class="online-description">1人が部屋を作り、もう1人がルームコードを入力するだけ。別々のスマホで対戦できるよ。</p>
+              <button id="createRoom" class="room-create">＋ 対戦ルームを作る</button>
+              <div class="room-divider">または友だちの部屋に入る</div>
+              <div class="room-join-row"><input id="roomInput" type="text" maxlength="8" spellcheck="false" autocapitalize="characters" autocomplete="off" inputmode="text" placeholder="8文字のルームコード" aria-label="ルームコード"><button id="joinRoom" type="button">参加する →</button></div>
+              <div class="room-panel" id="roomPanel" hidden>
+                <span class="room-panel-label">YOUR ROOM CODE</span>
+                <strong id="roomCode">────────</strong>
+                <div class="room-link-tools"><button id="copyInvite">↗ 招待URLをコピー</button><button id="shareInvite">友だちに送る</button></div>
+                <p id="roomStatus" class="room-status" role="status" aria-live="polite">接続中…</p>
+                <button id="onlineStart" class="room-start" disabled>2人そろったらスタート！</button>
+                <button id="leaveRoom" class="room-leave">部屋から退出する</button>
+              </div>
+              <p class="online-notice">※ インターネット接続が必要です。ホストは試合中ページを開いたままにしてください。ネットワーク環境によっては接続できないことがあります。</p>
+            </div>
+            <button id="startBtn" class="start-button">ゲームスタート <span aria-hidden="true">↗</span></button>
+            <div class="card-foot"><button id="openZukanHome" class="text-button">▦ もはじき図鑑</button><button id="openHelpHome" class="text-button">? あそびかた</button><button id="openSettingsHome" class="text-button">⚙ せってい</button></div>
+          </div>
+          <p class="online-note">🌐 2台でネット対戦にも対応！ ルームコードで簡単に対戦できます。</p>
+        </div>
+        <div class="showcase" aria-hidden="true">
+          <div class="showcase-stamp">A LITTLE WORD<br><strong>BIG MAGIC!</strong></div>
+          <div class="board-preview" id="boardPreview">
+            <div class="preview-orbit orbit1"></div><div class="preview-orbit orbit2"></div>
+            <div class="preview-piece preview-ne">ね</div><div class="preview-plus">＋</div><div class="preview-piece preview-ko">こ</div>
+            <div class="preview-flash">✦</div>
+            <div class="preview-cat"><div class="cat-ears"><i></i><i></i></div><div class="cat-face"><span>●</span><span>ᴗ</span><span>●</span></div><b>ねこ！</b></div>
+            <div class="preview-score">+20 <small>COMBO!</small></div>
+            <div class="preview-hint">文字がおはじきに。<br>言葉がキャラクターに。</div>
+          </div>
+          <div class="showcase-bottom"><span>◌　ふしぎな一投を、はじめよう。</span><span>✳ 1 GAME / 約 3 MIN</span></div>
+        </div>
+      </div>
+    </section>
+    <section id="gameScreen" class="screen" aria-label="ゲーム画面">
+      <div class="play-head">
+        <div class="play-head-upper"><button class="back-button" id="backToHome">← タイトル</button><span id="stageLabel" class="stage-label">✿ 陸のステージ</span><span class="network-game-label" id="netGameStatus" hidden>● 2台で対戦中</span><div class="play-tools"><button id="gameHelp" title="あそびかた">？</button><button id="gameZukan" title="図鑑">▦</button><button id="gameSettings" title="せってい">⚙</button></div></div>
+        <div class="scoreboard">
+          <div class="score-panel p1" id="scoreP1"><span class="player-identity"><i class="identity-dot"></i><span>PLAYER 1 <small>オレンジ</small></span></span><b class="score-value" id="scoreValue1">0</b></div>
+          <div class="round-center"><small>ROUND</small><strong id="roundValue">1 <i>/ 6</i></strong><span id="turnName">P1 の番</span></div>
+          <div class="score-panel p2" id="scoreP2"><span class="player-identity"><i class="identity-dot"></i><span id="player2Label">CPU <small>ブルー</small></span></span><b class="score-value" id="scoreValue2">0</b></div>
+        </div>
+      </div>
+      <div class="play-body">
+        <div class="court-wrap">
+          <div id="court" class="court" data-stage="land" data-orientation="wide">
+            <video id="cameraVideo" playsinline muted autoplay></video>
+            <canvas id="gameCanvas" aria-label="おはじきを後ろに引いて、はなそう" tabindex="0"></canvas>
+            <div class="corner-mark tl">ASOBeat</div><div class="corner-mark br">MOHAJIKI</div>
+            <div class="turn-toast" id="turnToast" role="status">文字を後ろに引いて、はなしてね！</div>
+            <div class="tip-bubble" id="tutorialBubble" hidden><b>1 / 2 はじく</b><span>好きな文字を後ろに引っぱって、はなそう！</span><button id="skipTutorial">とじる ×</button></div>
+            <div class="pause-panel net-pause" id="netPausePanel" hidden><div class="handoff-icon">⌁</div><span>NETWORK STATUS</span><h2 id="netPauseTitle">相手の再接続を待っています</h2><p id="netPauseText">通信が切れました。盤面はこのまま保持します。</p><button id="netReconnect" class="panel-primary">再接続する</button><button id="netQuit" class="room-leave">タイトルへ戻る</button></div>
+            <div class="pause-panel" id="handoffPanel" hidden><div class="handoff-icon">⇄</div><span>PASS THE PHONE</span><h2 id="handoffTitle">PLAYER 2 の番！</h2><p>スマホを渡して、準備ができたらスタート</p><button id="handoffReady" class="panel-primary">準備OK、はじめる →</button></div>
+          </div>
+          <div class="game-footer">
+            <div class="live-status"><span class="status-led"></span><span id="statusText">文字を選んで、ひっぱって、はなす！</span></div>
+            <div class="game-actions"><button id="undoBtn" disabled>↶ ひとつ戻す</button><button id="cameraBtn">▣ カメラ盤面</button></div>
+          </div>
+        </div>
+        <div class="side-infos">
+          <div class="info-panel"><span class="info-eyebrow">YOUR TURN</span><h3 id="sideTurnTitle">ねらって、はじこう。</h3><p id="sideTurnDescription">同じことばの文字をぶつけると、合体して動きだす！</p><div class="turn-meter"><div id="turnProgress"></div></div><div class="turn-count"><span>P1 残り <b id="remain1">6</b> 投</span><span>P2 残り <b id="remain2">6</b> 投</span></div></div>
+          <div class="info-panel compact"><span class="info-eyebrow">NEXT LITTLE MAGIC</span><div class="combo-spot"><div class="tiny-pair" id="hintPair">ね ＋ こ</div><b id="hintName">ねこ！</b></div><p id="hintDescription">好きな文字を選ぼう。組み合わせが光っておしえてくれるよ。</p></div>
+          <div class="info-panel compact zone-panel"><span class="info-eyebrow">FIELD EFFECTS</span><div id="zoneSummary" class="zone-summary">まだ地形はありません</div></div>
+          <div class="info-panel micro-panel"><span>HINT</span> 操作できる駒は <b>文字：両方</b>、<b>合体駒：作った人</b>。</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>ASOBeat　/　日常にアソビのスパイスを。</span><span>MOHAJIKI v2.1 · ONLINE EDITION</span></footer>
+</div>
+<div id="modalLayer" class="modal-layer" hidden><div class="modal-backdrop" data-close="modal"></div><div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button id="modalClose" class="modal-x" aria-label="閉じる">×</button><div id="modalContent"></div></div></div>
+<div id="toast" class="global-toast" role="status" aria-live="polite"></div>
+<script src="game.js"></script>
+</body></html>
